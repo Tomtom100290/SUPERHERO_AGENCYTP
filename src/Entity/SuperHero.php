@@ -33,7 +33,14 @@ class SuperHero
     private ?string $imageName = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
-    private ?\DateTimeImmutable $datedeCreation = null;
+    public ?\DateTimeImmutable $datedeCreation = null;
+
+
+    public function __construct()
+    {
+        $this->datedeCreation = new \DateTimeImmutable();
+    }
+
 
     public function getId(): ?int
     {
