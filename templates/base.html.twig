@@ -19,7 +19,34 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		{% endblock %}
 	</head>
-	<body>
-		{% block body %}{% endblock %}
-	</body>
-</html>
+
+	{% block nav %}
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+			<a class="navbar-brand" href="/superhero">Accueil</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="/newsuperhero">New Super héros</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/missions">Missions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="equipes">Equipes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Stats</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	{% endblock nav %}
+
+	{% block body %}
+		<div class="herobanner"></div>
+	{% endblock %}
+</html></body></html>

@@ -6,17 +6,15 @@ use App\Entity\SuperHero;
 use App\Form\NouveauSuperHeroType;
 use App\Form\SuperheroeditType;
 use App\Repository\SuperHeroRepository;
-use DateTime;
-use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SuperHeroController extends AbstractController
+class NewsuperheroController extends AbstractController
 {
-    #[Route('/superhero', name: 'app_super_hero')]
+    #[Route('/newsuperhero', name: 'app_newsuperhero')]
     public function index(Request $request, EntityManagerInterface $EntityManager, SuperHeroRepository $repository): Response
     {
         $SuperHeros = $repository->findAll();
@@ -30,26 +28,23 @@ class SuperHeroController extends AbstractController
             $EntityManager->persist($SuperHero);
             $EntityManager->flush();
         }
-        /*$formSuperHero->remove(name: 'datedeCreation');*/
         return $this->render(
-            'super_hero/index.html.twig',
+            'newsuperhero/index.html.twig',
             [
-                "controller_name" => 'SuperHeroController',
-                "formulaire" => $formSuperHero,
-                /*"formulaireSuperHero" => $formSuperHero,*/
-                "SuperHero" => $SuperHeros
+                'controller_name' => 'NewsuperheroController',
+                "formulaireSuperHero" => $formSuperHero,
             ]
         );
     }
-    #[Route("/superhero/{id}/edit", name: "superhero.edit")]
+    /*#[Route("/superhero/{id}/edit", name: "superhero.edit")]
     public function edit(SuperHero $SuperHeros)
     {
         $formedit = $this->createForm(SuperheroeditType::class, $SuperHeros);
-        return $this->render("super_hero/edit.html.twig", [
+        return $this->render("superhero/edit.html.twig", [
             'editsuperhero' => $SuperHeros,
             'formedit' => $formedit
 
 
         ]);
-    }
+    }*/
 }

@@ -4,34 +4,13 @@
 {% endblock %}
 
 {% block body %}
-	<!--<style>
-																																							.example-wrapper {
-																																								margin: 1em auto;
-																																								max-width: 800px;
-																																								width: 95%;
-																																								font: 18px / 1.5 sans-serif;
-																																							}
-																																							.example-wrapper code {
-																																								background: #F5F5F5;
-																																								padding: 2px 6px;
-																																							}
-																																						</style>-->
-
-	<div class="example-wrapper">
-		<h1>Les heros✅</h1>
-		<div class="formulaire">
-			{{form(formulaireSuperHero)}}
-			</div>
-			<!--
-																																																																																																												This friendly message is coming from:
-																																																																																																												<ul>
-																																																																																																												    <li>Your controller at <code>C:/Users/THOMY/Symfony_Projets/SuperHero_AgencyTP/src/Controller/SuperHeroController.php</code></li>
-																																																																																																												    <li>Your template at <code>C:/Users/THOMY/Symfony_Projets/SuperHero_AgencyTP/templates/super_hero/index.html.twig</code></li>
-																																																																																																												</ul>-->
-		</div>
+	<div class="herobanner"></div>
+	<h1>Liste de Super Héros</h1>
+	<div
+		class="formulaire">
 		<!--Liste des super heros-->
 		<div class="ListeSuperHeros">
-			<h2>Liste de Super Héros</h2>
+
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -51,13 +30,16 @@
 							<td>{{SuperHero.disponible}}</td>
 							<td>{{SuperHero.energylevel}}</td>
 							<td>{{SuperHero.DateDeCreation|date("m/d/y")}}</td>
+							<td>
+								<a href="/superhero/{id}/edit" , id class="btn btn-primary">Editer</a>
+							</td>
 
 
 							{%endfor%}@mdo
 						</tr>
 					</td>
 				</tbody>
-			</tr>
-		</tbody>
-	</tbody>
-</table>{% endblock %}
+			</table>
+		</div>
+	</div>
+{% endblock %}
